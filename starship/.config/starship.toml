@@ -4,7 +4,6 @@
 add_newline = false
 format = """
 [](surface0)\
-$os\
 $hostname\
 [](bg:surface2 fg:surface0)\
 $username\
@@ -19,7 +18,7 @@ $python\
 [](fg:teal bg:blue)\
 $docker_context\
 [](fg:blue bg:flamingo)\
-$time\
+$os\
 [ ](fg:flamingo)\
 $conda\
 $cmd_duration\
@@ -69,7 +68,7 @@ crust = "#11111b"
 
 [os]
 disabled = false
-style = "bg:surface0 fg:text"
+style = "bg:flamingo fg:surface0"
 
 [os.symbols]
 Windows = "󰍲"
@@ -89,8 +88,8 @@ Arch = "󰣇"
 Artix = "󰣇"
 CentOS = ""
 Debian = "󰣚"
-Redhat = "󱄛 "
-RedHatEnterprise = "󱄛"
+Redhat = " 󱄛 "
+RedHatEnterprise = " 󱄛 "
 
 [hostname]
 ssh_only = false
@@ -152,6 +151,9 @@ disabled = false
 time_format = "%R"
 style = "bg:flamingo"
 format = '[[  $time ](fg:mantle bg:flamingo)]($style)'
+
+[cmd_duration]
+style = "bold pink"
 
 [line_break]
 disabled = false

@@ -86,4 +86,8 @@ return {
       current_only = true,
     },
   },
+  { -- dim lines not in focus
+    'folke/twilight.nvim',
+    opts = {},
+  },
 }
