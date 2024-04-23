@@ -12,8 +12,8 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
 # Ubuntu style colorful prompt
-# export CLICOLOR=1
-# export LSCOLORS=ExFxBxDxCxegedabagacad
+export CLICOLOR=1
+export LSCOLORS=ExFxBxDxCxegedabagacad
 
 
 # You may need to manually set your language environment
