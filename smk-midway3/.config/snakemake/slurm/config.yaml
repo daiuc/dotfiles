@@ -1,0 +1,15 @@
+jobs: 70
+cores: 120
+cluster: "mkdir -p slurm_logs && sbatch --partition {resources.partition} --account pi-yangili1 -t {resources.time} -c {resources.cpu} --mem {resources.mem_mb} -e slurm_logs/{rule}%j.e -o slurm_logs/{rule}%j.o --job-name {rule}  "
+default-resources: [time=500, mem_mb=15000, cpu=1, partition=caslake]
+keep-going: True
+printshellcmds: True
+cluster-cancel: "scancel"
+use-conda: true
+use-envmodules: true
+use-singularity: true
+rerun-incomplete: true
+singularity-args: "--bind /scratch/midway3/chaodai,/scratch/midway2/chaodai,/project2/yangili1,/project/yangili1"
+#cleanup-containers: true
+## additional cluster args: --mail-type FAIL --mail-user chaodai@uchicago.edu
+##  --export=ALL,SHELL=/bin/bash

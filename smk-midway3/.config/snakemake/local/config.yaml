@@ -1,0 +1,12 @@
+cores: 8
+keep-going: true
+printshellcmds: true
+use-conda: true
+use-envmodules: true
+use-singularity: true
+rerun-incomplete: true
+singularity-args: "--bind /scratch/midway3/chaodai,/scratch/midway2/chaodai,/project2/yangili1,/project/yangili1"
+#cleanup-containers: true
+
+## additional cluster args: --mail-type FAIL --mail-user chaodai@uchicago.edu
+##  --export=ALL,SHELL=/bin/bash
