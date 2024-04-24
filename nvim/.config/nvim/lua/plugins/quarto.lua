@@ -552,7 +552,7 @@ return {
     build = ':TSUpdate',
     config = function()
       -- need to specify to use gcc as compiler first otherwise fail on midway2
-      require 'nvim-treesitter.install'.compilers = { "gcc", "clang" }
+      require('nvim-treesitter.install').compilers = { 'gcc', 'clang' }
 
       -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
       ---@diagnostic disable-next-line: missing-fields
@@ -714,6 +714,7 @@ return {
   -- paste an image from the clipboard or drag-and-drop
   {
     'HakonHarnes/img-clip.nvim',
+    enabled = false,
     event = 'BufEnter',
     opts = {
       filetypes = {
