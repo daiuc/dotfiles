@@ -40,20 +40,6 @@ module load parallel
 # api keys
 source ~/.api_keys
 
-## aliases
-alias yo="sinteractive --account pi-jstaley  --job-name CPU4M33G -c 4 --mem 33GB --time 36:00:00"
-alias yup="sinteractive --account pi-jstaley --job-name RsoJup -c 4 --mem 40GB --time 36:00:00"
-alias sc="scontrol show job"
-alias sq="squeue -u chaodai"
-alias smk="snakemake"
-alias vim="nvim"
-alias clr="clear"
-alias l="ls -lah --color=auto"
-alias ls="ls --color=auto"
-alias tl="tmux list-sessions"
-alias ta="tmux attach-session -t"
-alias ts="tmux new-session -s"
-
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -90,5 +76,20 @@ eval "$(fzf --zsh)"
 
 # starship
 eval "$(starship init zsh)"
+
+## aliases
+alias yo="sinteractive --account pi-jstaley  --job-name CPU4M33G -c 4 --mem 33GB --time 36:00:00"
+alias yup="sinteractive --account pi-jstaley --job-name RsoJup -c 4 --mem 40GB --time 36:00:00"
+alias sc="scontrol show job"
+alias sq="squeue -u chaodai"
+alias smk="snakemake"
+alias vim="nvim"
+alias clr="clear"
+alias l="ls -lah --color=auto"
+alias ls="ls --color=auto"
+alias tl="tmux list-sessions"
+alias ta="tmux attach-session -t"
+alias ts="tmux new-session -s"
+alias envsos="conda activate sos"
 
 
