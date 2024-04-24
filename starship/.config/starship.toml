@@ -72,29 +72,29 @@ style = "bg:surface0 fg:text"
 
 [os.symbols]
 Windows = "󰍲"
-Ubuntu = "󰕈"
-SUSE = ""
-Raspbian = "󰐿"
-Mint = "󰣭"
-Macos = ""
-Manjaro = ""
-Linux = "󰌽"
-Gentoo = "󰣨"
-Fedora = "󰣛"
-Alpine = ""
-Amazon = ""
-Android = ""
-Arch = "󰣇"
-Artix = "󰣇"
-CentOS = ""
-Debian = "󰣚"
+Ubuntu = "󰕈 "
+SUSE = " "
+Raspbian = "󰐿 "
+Mint = "󰣭 "
+Macos = " "
+Manjaro = " "
+Linux = "󰌽 "
+Gentoo = "󰣨 "
+Fedora = "󰣛 "
+Alpine = " "
+Amazon = " "
+Android = " "
+Arch = "󰣇 "
+Artix = "󰣇 "
+CentOS = " "
+Debian = "󰣚 "
 Redhat = "󱄛 "
 RedHatEnterprise = "󱄛 "
 
 [hostname]
 ssh_only = false
 style = "bg:surface0 fg:text"
-format = '[ $ssh_symbol$hostname]($style)'
+format = '[$ssh_symbol$hostname]($style)'
 disabled = false
 
 
