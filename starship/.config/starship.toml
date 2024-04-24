@@ -2,6 +2,8 @@
 
 # insert a blank line between shell prompts
 add_newline = false
+
+# prompt
 format = """
 [](surface0)\
 $os\
@@ -19,10 +21,12 @@ $python\
 [](fg:teal bg:blue)\
 $docker_context\
 [](fg:blue bg:flamingo)\
+$time\
 [ ](fg:flamingo)\
 $conda\
 $cmd_duration\
 $line_break$character"""
+
 
 palette = 'catppuccin_mocha'
 
