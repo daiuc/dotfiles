@@ -1,3 +1,4 @@
+# for midway3 .zshrc
 
 bindkey -e
 bindkey '^[[1;3C' forward-word # this is alt-left
