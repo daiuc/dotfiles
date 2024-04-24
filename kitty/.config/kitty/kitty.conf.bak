@@ -1281,7 +1281,8 @@ background_tint 0.95
 # color14 #14ffff
 
 #: cyan
-# color7  #dddddd
+
+color7  #dddddd
 # color15 #ffffff
 
 #: white
@@ -2490,9 +2491,3 @@ map cmd+q quit
 #: }}}
 
 #: }}}
-
-
-# BEGIN_KITTY_THEME
-# Catppuccin-Mocha
-include current-theme.conf
-# END_KITTY_THEME
