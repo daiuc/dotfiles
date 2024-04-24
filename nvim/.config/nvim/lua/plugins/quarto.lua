@@ -551,8 +551,10 @@ return {
     },
     build = ':TSUpdate',
     config = function()
-      -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
+      -- need to specify to use gcc as compiler first otherwise fail on midway2
+      require 'nvim-treesitter.install'.compilers = { "gcc", "clang" }
 
+      -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
       ---@diagnostic disable-next-line: missing-fields
       require('nvim-treesitter.configs').setup {
         ensure_installed = {

@@ -12,9 +12,9 @@ return {
     dependencies = {
       { 'nvim-lua/plenary.nvim' },
       { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_fonts },
-      { -- If encountering errors, see telescope-fzf-native README for install instructions
+      { 'jonarrien/telescope-cmdline.nvim' },
+      {
         'nvim-telescope/telescope-fzf-native.nvim',
-        'jonarrien/telescope-cmdline.nvim',
 
         -- `build` is used to run some command when the plugin is installed/updated.
         -- This is only run then, not every time Neovim starts up.

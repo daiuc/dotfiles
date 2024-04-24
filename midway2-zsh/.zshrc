@@ -5,9 +5,10 @@ bindkey -e
 bindkey '^[[1;3C' forward-word # this is alt-left
 bindkey '^[[1;3D' backward-word # this is alt-right
 
+module unload tmux
 
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=/scratch/midway2/chaodai/miniconda3/envs/ez/bin:/scratch/midway2/chaodai/miniconda3/bin:/scratch/midway2/chaodai/miniconda3/condabin:/home/chaodai/bin:/home/chaodai/.local/bin:$PATH
+export PATH="/scratch/midway2/chaodai/miniconda3/envs/ez/bin:/scratch/midway2/chaodai/miniconda3/bin:/scratch/midway2/chaodai/miniconda3/condabin:/home/chaodai/bin:/home/chaodai/.local/bin:$PATH"
 
 export TZ="America/Chicago"
 export SINGULARITYENV_CACHEDIR="/scratch/midway2/chaodai/.singularity"
@@ -19,8 +20,9 @@ export ZSH_COMPDUMP=$ZSH/cache/.zcompdump.$HOST.$(zsh --version | awk '{print $1
 
 export TMPDIR=/scratch/midway2/chaodai/TMP
 
-module load tmux/3.1c 
 module load gsl/2.5 parallel
+
+module unload gcc && module load gcc/12.2.0
 
 export EDITOR='nvim'
 
@@ -41,7 +43,6 @@ alias sc="scontrol show job"
 alias sq="squeue -u chaodai"
 alias l="ls -lah --color=auto"
 alias ls="ls --color=auto"
-alias vim="nvim"
 alias clr="clear"
 alias smk="snakemake"
 alias tl="tmux list-sessions"
