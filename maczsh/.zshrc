@@ -91,7 +91,8 @@ alias kuc3='kitten ssh chaodai@midway3-login3.rcc.uchicago.edu '
 alias kuc4='kitten ssh chaodai@midway3-login4.rcc.uchicago.edu '
 alias vim=nvim
 alias clr='clear' # since ctrl-l is not working in tmux
-alias l='ls -lah'
+alias ls='ls --color=auto'
+alias l='ls -lah --color=auto'
 
 
 
