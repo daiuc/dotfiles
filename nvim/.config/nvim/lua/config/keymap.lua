@@ -130,6 +130,12 @@ nmap('<c-k>', '<c-w>k')
 nmap('H', '<cmd>tabprevious<cr>')
 nmap('L', '<cmd>tabnext<cr>')
 
+-- github copilot, don't sue <tab> for completion (as it conflicts with cmp)
+vim.keymap.set('i', '<C-J>', 'copilot#Accept("\\<CR>")', { expr = true, replace_keycodes = false })
+vim.g.copilot_no_tab_map = true
+vim.keymap.set('i', '<C-L>', '<Plug>(copilot-accept-word)')
+vim.keymap.set('i', '<C-K>', '<Plug>(copilot-accept-line)')
+
 local function toggle_light_dark_theme()
   if vim.o.background == 'light' then
     vim.o.background = 'dark'

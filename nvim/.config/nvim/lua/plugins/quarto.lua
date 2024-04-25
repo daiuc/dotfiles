@@ -685,31 +685,31 @@ return {
     end,
   },
 
-  -- { --github copilot
-  --   'github/copilot.vim',
-  -- },
-  -- use this one instead
-  { -- gh copilot
-    'zbirenbaum/copilot.lua',
-    config = function()
-      require('copilot').setup {
-        suggestion = {
-          enabled = true,
-          auto_trigger = true,
-          debounce = 75,
-          keymap = {
-            accept = '<c-a>',
-            accept_word = false,
-            accept_line = false,
-            next = '<M-]>',
-            prev = '<M-[>',
-            dismiss = '<C-]>',
-          },
-        },
-        panel = { enabled = false },
-      }
-    end,
+  { --github copilot
+    'github/copilot.vim',
   },
+  -- use this one instead
+  -- { -- gh copilot
+  --   'zbirenbaum/copilot.lua',
+  --   config = function()
+  --     require('copilot').setup {
+  --       suggestion = {
+  --         enabled = true,
+  --         auto_trigger = true,
+  --         debounce = 75,
+  --         keymap = {
+  --           accept = '<c-a>',
+  --           accept_word = false,
+  --           accept_line = false,
+  --           next = '<M-]>',
+  --           prev = '<M-[>',
+  --           dismiss = '<C-]>',
+  --         },
+  --       },
+  --       panel = { enabled = false },
+  --     }
+  --   end,
+  -- },
 
   -- paste an image from the clipboard or drag-and-drop
   {
