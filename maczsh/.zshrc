@@ -93,6 +93,10 @@ alias vim=nvim
 alias clr='clear' # since ctrl-l is not working in tmux
 alias ls='ls --color=auto'
 alias l='ls -lah --color=auto'
+alias tl='tmux ls'
+alias ta='tmux attach -t'
+alias ts='tmux new-session -s'
+
 
 
 
