@@ -1,9 +1,10 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
-# insert a blank line between shell prompts
-add_newline = false
-
 # prompt
+
+add_newline = false
+command_timeout = 1000
+palette = 'catppuccin_mocha'
 format = """
 [](surface0)\
 $os\
@@ -28,7 +29,6 @@ $cmd_duration\
 $line_break$character"""
 
 
-palette = 'catppuccin_mocha'
 
 [palettes.gruvbox_dark]
 color_fg0 = '#fbf1c7'
