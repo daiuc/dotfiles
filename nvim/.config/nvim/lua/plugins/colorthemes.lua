@@ -3,7 +3,7 @@ return {
   { 'folke/tokyonight.nvim', enabled = false, lazy = false, priority = 1000 },
   { 'EdenEast/nightfox.nvim', enabled = false, lazy = false, priority = 1000 },
   { 'projekt0n/github-nvim-theme', enabled = true },
-  { 'sonph/onehalf', enabled = true },
+  { 'sonph/onehalf', enabled = false },
   {
     'catppuccin/nvim',
     name = 'catppuccin',
@@ -28,6 +28,22 @@ return {
     enabled = false,
     lazy = false,
     priority = 1000,
+  },
+  {
+    'scottmckendry/cyberdream.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require('cyberdream').setup {
+        -- Recommended - see "Configuring" below for more config options
+        transparent = true,
+        italic_comments = true,
+        hide_fillchars = true,
+        borderless_telescope = false,
+        terminal_colors = false,
+      }
+      -- vim.cmd("colorscheme cyberdream") -- set the colorscheme
+    end,
   },
 
   -- color html colors
