@@ -38,7 +38,7 @@ source ~/.api_keys
 
 # alias
 alias htop="/scratch/midway2/chaodai/miniconda3/bin/htop"
-alias sos="conda activate sos && compdef _gnu_generic snakemake"
+alias envsos="conda activate sos"
 alias sc="scontrol show job"
 alias sq="squeue -u chaodai"
 alias l="ls -lah --color=auto"
