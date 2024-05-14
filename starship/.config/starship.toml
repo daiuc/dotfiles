@@ -3,7 +3,7 @@
 # prompt
 
 add_newline = false
-command_timeout = 1000
+command_timeout = 2000
 palette = 'catppuccin_mocha'
 format = """
 [](surface0)\
