@@ -1,11 +1,18 @@
 # for midway2 .zshrc
 
 # for kitty terminal 
-bindkey -e
-bindkey '^[[1;3C' forward-word # this is alt-left
-bindkey '^[[1;3D' backward-word # this is alt-right
+# bindkey -e
+# bindkey '^[[1;3C' forward-word # this is alt-left
+# bindkey '^[[1;3D' backward-word # this is alt-right
+#
+# kitty
+bindkey "\e[1;3C" forward-word # ⌥→
+bindkey "\e[1;3D" backward-word # ⌥←
 
-module unload tmux
+# iterm
+# bindkey "\e\e[D" backward-word # ⌥←
+# bindkey "\e\e[C" forward-word # ⌥→
+
 
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH="/scratch/midway2/chaodai/miniconda3/envs/ez/bin:/scratch/midway2/chaodai/miniconda3/bin:/scratch/midway2/chaodai/miniconda3/condabin:/home/chaodai/bin:/home/chaodai/.local/bin:$PATH"
@@ -21,8 +28,9 @@ export ZSH_COMPDUMP=$ZSH/cache/.zcompdump.$HOST.$(zsh --version | awk '{print $1
 export TMPDIR=/scratch/midway2/chaodai/TMP
 
 module load gsl/2.5 parallel
-
 module unload gcc && module load gcc/12.2.0
+module unload tmux && module load tmux/3.1c
+
 
 export EDITOR='nvim'
 
@@ -38,7 +46,7 @@ source ~/.api_keys
 
 # alias
 alias htop="/scratch/midway2/chaodai/miniconda3/bin/htop"
-alias sos="conda activate sos && compdef _gnu_generic snakemake"
+alias envsos="conda activate sos"
 alias sc="scontrol show job"
 alias sq="squeue -u chaodai"
 alias l="ls -lah --color=auto"
@@ -89,8 +97,6 @@ eval "$(zoxide init zsh)"
 # fzf init
 eval "$(fzf --zsh)"
 
-# need for tmuxifier
-# eval "$(tmuxifier init -)"
 
 
 
