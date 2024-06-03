@@ -7,7 +7,7 @@ return {
     'quarto-dev/quarto-nvim',
     opts = {
       ft = { 'quarto' },
-      lspFeatures = {
+      lsp = {
         languages = { 'r', 'pyright', 'path', 'bash', 'python', 'yaml-language-server', 'taplo' },
         codeRunner = {
           enabled = true,
@@ -19,7 +19,7 @@ return {
       {
         'jmbuhr/otter.nvim',
         opts = {
-          lspFeatures = {
+          lsp = {
             hover = {
               border = require('misc.style').border,
             },
