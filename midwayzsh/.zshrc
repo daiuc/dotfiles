@@ -60,7 +60,7 @@ if [ -f "/scratch/midway3/chaodai/miniconda3/etc/profile.d/mamba.sh" ]; then
 fi
 
 # zsh-autosuggestions & syntaxhighlighting
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
