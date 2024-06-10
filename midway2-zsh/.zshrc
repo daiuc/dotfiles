@@ -6,8 +6,8 @@
 # bindkey '^[[1;3D' backward-word # this is alt-right
 #
 # kitty
-bindkey "\e[1;3C" forward-word # ⌥→
-bindkey "\e[1;3D" backward-word # ⌥←
+# bindkey "\e[1;3C" forward-word # ⌥→
+# bindkey "\e[1;3D" backward-word # ⌥←
 
 # iterm
 # bindkey "\e\e[D" backward-word # ⌥←
