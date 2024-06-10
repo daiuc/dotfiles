@@ -8,7 +8,7 @@ return {
     opts = {
       ft = { 'quarto' },
       lsp = {
-        languages = { 'r', 'pyright', 'path', 'bash', 'python', 'yaml-language-server', 'taplo' },
+        languages = { 'r', 'python', 'path', 'bash', 'yaml-language-server', 'taplo' },
         codeRunner = {
           enabled = true,
           default_method = 'slime',
@@ -23,7 +23,7 @@ return {
             hover = {
               border = require('misc.style').border,
             },
-            languages = { 'r', 'pyright', 'path', 'bash', 'python' },
+            languages = { 'r', 'python', 'path', 'bash' },
             buffers = {
               set_filetype = false,
               write_to_disk = true,
