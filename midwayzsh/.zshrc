@@ -1,9 +1,8 @@
 # for midway3 .zshrc
 
 bindkey -e
-bindkey '^[[1;3C' forward-word # this is alt-left
+bindkey '^[[1;3C' forward-word  # this is alt-left
 bindkey '^[[1;3D' backward-word # this is alt-right
-
 
 #export useful path for bin
 export PATH="$HOME/.tmuxifier/bin:/scratch/midway3/chaodai/miniconda3/envs/ez/bin:$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH"
@@ -13,7 +12,6 @@ eval "$(tmuxifier init -)"
 
 # need this for QTLtools
 #export LD_LIBRARY_PATH=/scratch/midway3/chaodai/miniconda3/envs/sos/lib:$LD_LIBRARY_PATH
-
 
 # prevent lots of compdump files in $HOME
 #export ZSH_COMPDUMP=$ZSH/cache/.zcompdump.$(hostname -s).$(zsh --version | awk '{print $2}')
@@ -40,23 +38,22 @@ module load parallel
 # api keys
 source ~/.api_keys
 
-
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/scratch/midway3/chaodai/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/scratch/midway3/chaodai/miniconda3/bin/conda' 'shell.zsh' 'hook' 2>/dev/null)"
 if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
+  eval "$__conda_setup"
 else
-    if [ -f "/scratch/midway3/chaodai/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/scratch/midway3/chaodai/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/scratch/midway3/chaodai/miniconda3/bin:$PATH"
-    fi
+  if [ -f "/scratch/midway3/chaodai/miniconda3/etc/profile.d/conda.sh" ]; then
+    . "/scratch/midway3/chaodai/miniconda3/etc/profile.d/conda.sh"
+  else
+    export PATH="/scratch/midway3/chaodai/miniconda3/bin:$PATH"
+  fi
 fi
 unset __conda_setup
 
 if [ -f "/scratch/midway3/chaodai/miniconda3/etc/profile.d/mamba.sh" ]; then
-    . "/scratch/midway3/chaodai/miniconda3/etc/profile.d/mamba.sh"
+  . "/scratch/midway3/chaodai/miniconda3/etc/profile.d/mamba.sh"
 fi
 
 # zsh-autosuggestions & syntaxhighlighting
@@ -65,7 +62,7 @@ source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 # key bindings for autocomplet - cycle through complete
-bindkey              '^I'         menu-complete
+bindkey '^I' menu-complete
 bindkey "$terminfo[kcbt]" reverse-menu-complete
 
 # zoxide init
@@ -91,5 +88,3 @@ alias tl="tmux list-sessions"
 alias ta="tmux attach-session -t"
 alias ts="tmux new-session -s"
 alias envsos="conda activate sos"
-
-
