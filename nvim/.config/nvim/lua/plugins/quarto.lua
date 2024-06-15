@@ -504,6 +504,7 @@ return {
         },
 
         sources = {
+          { name = 'copilot' },
           { name = 'lua_ls' },
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
@@ -685,31 +686,39 @@ return {
     end,
   },
 
-  { --github copilot
-    'github/copilot.vim',
-  },
-  -- use this one instead
-  -- { -- gh copilot
-  --   'zbirenbaum/copilot.lua',
-  --   config = function()
-  --     require('copilot').setup {
-  --       suggestion = {
-  --         enabled = true,
-  --         auto_trigger = true,
-  --         debounce = 75,
-  --         keymap = {
-  --           accept = '<c-a>',
-  --           accept_word = false,
-  --           accept_line = false,
-  --           next = '<M-]>',
-  --           prev = '<M-[>',
-  --           dismiss = '<C-]>',
-  --         },
-  --       },
-  --       panel = { enabled = false },
-  --     }
-  --   end,
+  -- { --github copilot
+  --   'github/copilot.vim',
   -- },
+
+  {
+    'zbirenbaum/copilot.lua',
+    enabled = true,
+    config = function()
+      require('copilot').setup {
+        suggestion = {
+          enabled = true,
+          auto_trigger = true,
+          debounce = 75,
+          keymap = {
+            accept = '<c-j>',
+            accept_word = false,
+            accept_line = '<c-k>',
+            next = '<M-]>',
+            prev = '<M-[>',
+            dismiss = '<C-]>',
+          },
+        },
+        panel = { enabled = false },
+      }
+    end,
+  },
+
+  {
+    'zbirenbaum/copilot-cmp',
+    config = function()
+      require('copilot_cmp').setup()
+    end,
+  },
 
   -- paste an image from the clipboard or drag-and-drop
   {
