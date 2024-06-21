@@ -87,7 +87,6 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
     type = 'python'
     style = 'powerline'
     fetch_virtual_env = true
-    display_mode = 'always'
     powerline_symbol = ''
     invert_powerline = true
     foreground = '#111111'
