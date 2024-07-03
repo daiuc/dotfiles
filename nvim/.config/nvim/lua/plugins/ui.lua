@@ -3,7 +3,7 @@ return {
     'nvim-lualine/lualine.nvim',
     opts = {
       options = {
-        theme = 'dracula',
+        theme = 'auto',
         icons_enabled = true,
       },
     },

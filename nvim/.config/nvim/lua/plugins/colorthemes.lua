@@ -1,6 +1,6 @@
 return {
   { 'shaunsingh/nord.nvim', enabled = false, lazy = false, priority = 1000 },
-  { 'folke/tokyonight.nvim', enabled = false, lazy = false, priority = 1000 },
+  { 'folke/tokyonight.nvim', enabled = true, lazy = false, priority = 1000 },
   { 'EdenEast/nightfox.nvim', enabled = false, lazy = false, priority = 1000 },
   { 'projekt0n/github-nvim-theme', enabled = true },
   { 'sonph/onehalf', enabled = false },
