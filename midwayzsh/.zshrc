@@ -80,7 +80,6 @@ alias yup="sinteractive --account pi-jstaley --job-name RsoJup -c 4 --mem 40GB -
 alias sc="scontrol show job"
 alias sq="squeue -u chaodai"
 alias smk="snakemake"
-alias vim="nvim"
 alias clr="/usr/bin/clear"
 alias l="ls -lah --color=auto"
 alias ls="ls --color=auto"
