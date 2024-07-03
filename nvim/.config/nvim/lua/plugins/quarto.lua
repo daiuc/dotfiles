@@ -286,6 +286,7 @@ return {
 
         pyright = {
           flags = lsp_flags,
+          filetypes = { 'python', 'snakemake' },
         },
 
         r_language_server = {
