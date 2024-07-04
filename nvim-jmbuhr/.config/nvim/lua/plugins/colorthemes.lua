@@ -1,6 +1,17 @@
 return {
   { 'shaunsingh/nord.nvim', enabled = false, lazy = false, priority = 1000 },
-  { 'folke/tokyonight.nvim', enabled = false, lazy = false, priority = 1000 },
+  { 'folke/tokyonight.nvim', 
+    enabled = true,
+    lazy = false,
+    priority = 1000,
+    config =  function()
+      vim.cmd.colorscheme 'tokyonight'
+      local colors = require('tokyonight.colors').setup()
+      vim.api.nvim_set_hl(0, 'Tabline', { fg = colors.blue7, bg = '#e6e9ef' })
+      vim.api.nvim_set_hl(0, 'TermCursor', { fg = '#A6E3A1', bg = '#A6E3A1' })
+    end,
+
+  },
   { 'EdenEast/nightfox.nvim', enabled = false, lazy = false, priority = 1000 },
   {
     'catppuccin/nvim',
@@ -32,7 +43,7 @@ return {
 
   {
     'rebelot/kanagawa.nvim',
-    enabled = true,
+    enabled = false,
     lazy = false,
     priority = 1000,
     config = function()

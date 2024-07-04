@@ -138,7 +138,8 @@ return {
   { -- statusline
     -- PERF: I found this to slow down the editor
     'nvim-lualine/lualine.nvim',
-    enabled = false,
+    enabled = true,
+    theme = 'auto',
     config = function()
       local function macro_recording()
         local reg = vim.fn.reg_recording()
@@ -201,7 +202,7 @@ return {
       require('nvim-tree').setup {
         disable_netrw = true,
         update_focused_file = {
-          enable = true,
+          enable = false,
         },
         git = {
           enable = true,
@@ -331,7 +332,7 @@ return {
 
   { -- show images in nvim!
     '3rd/image.nvim',
-    enabled = true,
+    enabled = false,
     dev = false,
     ft = { 'markdown', 'quarto', 'vimwiki' },
     config = function()
