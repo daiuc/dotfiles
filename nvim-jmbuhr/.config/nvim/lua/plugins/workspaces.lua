@@ -2,6 +2,7 @@ return {
 
   { -- manage projects
     'gnikdroy/projections.nvim',
+    enabled = false,
     keys = {
       {
         '<leader>fp',

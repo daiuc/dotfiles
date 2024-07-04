@@ -93,6 +93,7 @@ return {
   { -- paste an image from the clipboard or drag-and-drop
     'HakonHarnes/img-clip.nvim',
     event = 'BufEnter',
+    enabled = false,
     ft = { 'markdown', 'quarto', 'latex' },
     opts = {
       default = {
