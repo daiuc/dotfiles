@@ -6,6 +6,7 @@ return {
   -- handy git ui
   {
     'NeogitOrg/neogit',
+    enabled = false,
     lazy = true,
     cmd = 'Neogit',
     keys = {
@@ -23,13 +24,14 @@ return {
 
   {
     'lewis6991/gitsigns.nvim',
-    enabled = false,
+    enabled = true,
     config = function()
       require('gitsigns').setup {}
     end,
   },
   {
     'akinsho/git-conflict.nvim',
+    enabled = false,
     init = function()
       require('git-conflict').setup {
         default_mappings = false,
@@ -58,7 +60,7 @@ return {
 
   { -- github PRs and the like with gh - cli
     'pwntester/octo.nvim',
-    enabled = true,
+    enabled = false,
     cmd = 'Octo',
     config = function()
       require('octo').setup()
