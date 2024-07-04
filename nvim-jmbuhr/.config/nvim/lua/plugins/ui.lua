@@ -196,11 +196,35 @@ return {
     enabled = true,
     keys = {
       { '<leader>b', ':NvimTreeToggle<cr>', desc = 'toggle nvim-tree'}
-      -- { '<c-b>', ':NvimTreeToggle<cr>', desc = 'toggle nvim-tree' },
     },
     config = function()
       require('nvim-tree').setup {
         disable_netrw = true,
+        renderer = {
+          symlink_destination = false,
+        },
+        view = {
+          float = {
+            enable = false,
+          },
+        },
+        filters = {
+          dotfiles = true,
+          custom = {
+            '_freeze',
+            'docs',
+            '.*logs.*',
+          },
+        },
+        filesystem_watchers = {
+            ignore_dirs = {
+              'code',
+              'data',
+              '.*log.*',
+              '^_.+',
+              '\\..+',
+          }
+        },
         update_focused_file = {
           enable = false,
         },
