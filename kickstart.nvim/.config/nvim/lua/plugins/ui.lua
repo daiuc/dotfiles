@@ -53,9 +53,10 @@ return {
 
   {
     'nvim-lualine/lualine.nvim',
+    enabled = false,
     opts = {
       options = {
-        theme = 'dracula',
+        theme = 'auto',
         icons_enabled = true,
       },
     },
