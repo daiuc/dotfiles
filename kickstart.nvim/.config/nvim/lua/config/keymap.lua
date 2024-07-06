@@ -170,6 +170,7 @@ wk.register({
   ['[q'] = { ':silent cprev<cr>', '[q]uickfix prev' },
   ['z?'] = { ':setlocal spell!<cr>', 'toggle [z]pellcheck' },
   ['zl'] = { ':Telescope spell_suggest<cr>', '[l]ist spelling suggestions' },
+  ['<c-s>'] = { ':Telescope session-lens<cr>', 'session [s]earch' },
 }, { mode = 'n', silent = true })
 
 -- visual mode
