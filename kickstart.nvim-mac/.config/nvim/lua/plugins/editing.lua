@@ -42,7 +42,6 @@ return {
       --  Check out: https://github.com/echasnovski/mini.nvim
     end,
   },
-
   {
     'windwp/nvim-autopairs',
     config = function()
@@ -50,4 +49,5 @@ return {
       require('nvim-autopairs').remove_rule '`'
     end,
   },
+  { 'lukas-reineke/indent-blankline.nvim', main = 'ibl', opts = {} },
 }
