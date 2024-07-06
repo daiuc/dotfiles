@@ -50,4 +50,5 @@ return {
       require('nvim-autopairs').remove_rule '`'
     end,
   },
+  { 'lukas-reineke/indent-blankline.nvim', main = 'ibl', opts = {} },
 }
