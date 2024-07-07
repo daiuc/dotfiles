@@ -39,6 +39,15 @@ nmap('<S-Right>', '<cmd>vertical resize +2<CR>')
 
 nmap('Q', '<Nop>')
 
+-- move in command line
+cmap('<C-a>', '<Home>')
+
+-- exit insert mode with jk
+imap('jk', '<esc>')
+
+-- exit terminal mode with jk
+vim.keymap.set('t', 'jk', '<C-\\><C-n>')
+
 --- Send code to terminal with vim-slime
 --- If an R terminal has been opend, this is in r_mode
 --- and will handle python code via reticulate when sent
@@ -223,7 +232,13 @@ wk.register({
   ['<cr>'] = { send_cell, 'run code cell' },
   c = {
     name = '[c]ode / [c]ell / [c]hunk',
-    n = { new_terminal_shell, '[n]ew terminal with shell' },
+    n = { new_terminal_shell, '[n]ew terminal with shell (vsplit)' },
+    N = {
+      function()
+        vim.cmd 'split term://$SHELL'
+      end,
+      '[N]ew terminal with shell (split horizontal)',
+    },
     r = {
       function()
         vim.b['quarto_is_r_mode'] = true
