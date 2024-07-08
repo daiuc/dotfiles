@@ -50,6 +50,12 @@ return {
       }
     end,
   },
+  {
+    'stevearc/oil.nvim',
+    opts = {},
+    -- Optional dependencies
+    dependencies = { 'echasnovski/mini.icons' },
+  },
 
   {
     'nvim-lualine/lualine.nvim',
