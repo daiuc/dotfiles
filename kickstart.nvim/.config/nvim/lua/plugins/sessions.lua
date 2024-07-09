@@ -1,7 +1,7 @@
 return {
   {
     'rmagatti/auto-session',
-    enabled = true,
+    enabled = false,
     dependencies = {
       'nvim-telescope/telescope.nvim',
     },
