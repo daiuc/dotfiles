@@ -1,7 +1,7 @@
 return {
   {
     'rmagatti/auto-session',
-    enabled = false,
+    enabled = true,
     dependencies = {
       'nvim-telescope/telescope.nvim',
     },
@@ -12,7 +12,10 @@ return {
           '~/Projects',
           '~/Downloads',
           '~/Desktop',
-          '/',
+          '~/bin',
+          '~/software/',
+          '/scratch/midway2/chaodai',
+          '/scratch/midway3/chaodai',
         },
       }
     end,
