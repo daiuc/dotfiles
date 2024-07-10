@@ -294,13 +294,14 @@ wk.register({
     g = { ':Neogen<cr>', 'neo[g]en docstring' },
   },
   o = {
-    name = '[o]tter & c[o]de',
+    name = '[o]tter & c[o]de & [o]il',
     a = { require('otter').activate, 'otter [a]ctivate' },
     d = { require('otter').deactivate, 'otter [d]eactivate' },
     c = { 'O# %%<cr>', 'magic [c]omment code chunk # %%' },
     r = { insert_r_chunk, '[r] code chunk' },
     p = { insert_py_chunk, '[p]ython code chunk' },
     b = { insert_bash_chunk, '[b]ash code chunk' },
+    l = { ':Oil<cr>', 'Open oi[l]' },
   },
   q = {
     name = '[q]uarto',
