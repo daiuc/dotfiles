@@ -227,6 +227,34 @@ local function new_terminal_shell()
   new_terminal '$SHELL'
 end
 
+local function goto_next_code_chunk()
+  local pattern = '^```%{%w+%}'
+  local current_line = vim.fn.line '.'
+  local last_line = vim.fn.line '$'
+  for i = current_line + 1, last_line do
+    local line_content = vim.fn.getline(i)
+    if line_content:match(pattern) then
+      vim.cmd('normal! ' .. i .. 'G')
+      return
+    end
+  end
+end
+
+local function goto_previous_code_chunk()
+  local pattern = '^```%{%w+%}'
+  local current_line = vim.fn.line '.'
+  for i = current_line - 1, 1, -1 do
+    local line_content = vim.fn.getline(i)
+    if line_content:match(pattern) then
+      vim.cmd('normal! ' .. i .. 'G')
+      return
+    end
+  end
+end
+
+nmap(']]', goto_next_code_chunk)
+nmap('[[', goto_previous_code_chunk)
+
 -- normal mode with <leader>
 wk.register({
   ['<cr>'] = { send_cell, 'run code cell' },
