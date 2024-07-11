@@ -67,6 +67,14 @@ return {
       },
     },
   },
+  {
+    'nvim-zh/colorful-winsep.nvim',
+    enabled = false,
+    event = { 'WinLeave' },
+    config = function()
+      require('colorful-winsep').setup()
+    end,
+  },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
