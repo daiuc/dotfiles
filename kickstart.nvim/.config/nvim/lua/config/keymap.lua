@@ -213,18 +213,26 @@ end
 
 local function new_terminal_python()
   new_terminal 'python'
+  vim.cmd 'sleep 100m'
+  vim.cmd 'normal! G' -- move to end of terminal
 end
 
 local function new_terminal_r()
   new_terminal 'R --no-save'
+  vim.cmd 'sleep 100m'
+  vim.cmd 'normal! G' -- move to end of terminal
 end
 
 local function new_terminal_ipython()
   new_terminal 'ipython --no-confirm-exit'
+  vim.cmd 'sleep 100m'
+  vim.cmd 'normal! G' -- move to end of terminal
 end
 
 local function new_terminal_shell()
   new_terminal '$SHELL'
+  vim.cmd 'sleep 100m'
+  vim.cmd 'normal! G' -- move to end of terminal
 end
 
 local function goto_next_code_chunk()
@@ -234,7 +242,7 @@ local function goto_next_code_chunk()
   for i = current_line + 1, last_line do
     local line_content = vim.fn.getline(i)
     if line_content:match(pattern) then
-      vim.cmd('normal! ' .. i .. 'G')
+      vim.cmd('normal! ' .. i + 1 .. 'G')
       return
     end
   end
@@ -252,8 +260,12 @@ local function goto_previous_code_chunk()
   end
 end
 
-nmap(']]', goto_next_code_chunk)
-nmap('[[', goto_previous_code_chunk)
+vim.keymap.set('n', '[[', goto_previous_code_chunk, { noremap = true, silent = true })
+vim.keymap.set('n', ']]', goto_next_code_chunk, { noremap = true, silent = true })
+
+-- send code with Enter and leader Enter
+vmap('<cr>', '<Plug>SlimeRegionSend')
+nmap('<leader><cr>', '<Plug>SlimeSendCell')
 
 -- normal mode with <leader>
 wk.register({
@@ -264,6 +276,8 @@ wk.register({
     N = {
       function()
         vim.cmd 'split term://$SHELL'
+        vim.cmd 'sleep 100m'
+        vim.cmd 'normal! G' -- move to end of terminal
       end,
       '[N]ew terminal with shell (split horizontal)',
     },
