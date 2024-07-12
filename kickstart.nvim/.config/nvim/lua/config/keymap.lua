@@ -343,7 +343,7 @@ wk.register({
     r = { insert_r_chunk, '[r] code chunk' },
     p = { insert_py_chunk, '[p]ython code chunk' },
     b = { insert_bash_chunk, '[b]ash code chunk' },
-    l = { ':Oil<cr>', 'Open oi[l]' },
+    l = { ':Oil --float<cr>', 'Open oi[l]' },
   },
   q = {
     name = '[q]uarto',
