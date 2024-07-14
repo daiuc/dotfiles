@@ -52,7 +52,7 @@ return {
   { 'lukas-reineke/indent-blankline.nvim', main = 'ibl', opts = {} },
   {
     'RRethy/vim-illuminate',
-    enabled = true,
+    enabled = false,
     config = function()
       require 'illuminate'
     end,
