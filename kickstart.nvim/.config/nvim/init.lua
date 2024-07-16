@@ -1,9 +1,9 @@
 if vim.g.vscode then
   require 'config-vscode.global'
-  require 'config-vscode.lazy'
   require 'config-vscode.autocommands'
+  require 'config-vscode.lazy'
 else
   require 'config.global'
-  require 'config.lazy'
   require 'config.autocommands'
+  require 'config.lazy'
 end

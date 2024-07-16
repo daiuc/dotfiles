@@ -67,12 +67,39 @@ return {
       },
     },
   },
-  {
+  { -- make window bordoers colorful
     'nvim-zh/colorful-winsep.nvim',
     enabled = false,
     event = { 'WinLeave' },
     config = function()
       require('colorful-winsep').setup()
+    end,
+  },
+  {
+    'lukas-reineke/headlines.nvim',
+    enabled = true,
+    config = function()
+      require('headlines').setup {
+        quarto = {
+          query = vim.treesitter.query.parse(
+            'markdown',
+            [[
+                (fenced_code_block) @codeblock
+                ]]
+          ),
+          codeblock_highlight = 'CodeBlock',
+          treesitter_language = 'markdown',
+        },
+        markdown = {
+          query = vim.treesitter.query.parse(
+            'markdown',
+            [[
+                (fenced_code_block) @codeblock
+                ]]
+          ),
+          codeblock_highlight = 'CodeBlock',
+        },
+      }
     end,
   },
 }, {
