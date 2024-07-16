@@ -116,8 +116,12 @@ nmap('<c-h>', '<c-w>h')
 nmap('<c-l>', '<c-w>l')
 nmap('<c-j>', '<c-w>j')
 nmap('<c-k>', '<c-w>k')
-nmap('H', '<cmd>tabprevious<cr>')
-nmap('L', '<cmd>tabnext<cr>')
+
+-- Move between tabs, note mini.tabline uses bnext and bprev
+-- nmap('H', '<cmd>tabprevious<cr>')
+-- nmap('L', '<cmd>tabnext<cr>')
+nmap('H', '<cmd>bprev<cr>')
+nmap('L', '<cmd>bnext<cr>')
 
 local function toggle_light_dark_theme()
   if vim.o.background == 'light' then
