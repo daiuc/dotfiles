@@ -50,7 +50,20 @@ return {
       }
     end,
   },
-
+  {
+    'stevearc/oil.nvim',
+    opts = {
+      view_options = {
+        show_hidden = true,
+      },
+    },
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',
+    },
+    keys = {
+      { '<leader>ol', ':Oil --float<cr>', desc = '[O]pen oi[l]' },
+    },
+  },
   {
     'nvim-lualine/lualine.nvim',
     enabled = false,
