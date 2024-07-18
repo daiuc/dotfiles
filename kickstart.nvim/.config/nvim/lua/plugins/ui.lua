@@ -105,19 +105,28 @@ return {
   {
     'folke/noice.nvim',
     event = 'VeryLazy',
-    opts = {
-      -- add any options here
-    },
+    opts = {},
     dependencies = {
       -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
       { 'MunifTanjim/nui.nvim', module = 'nui' },
-      -- OPTIONAL:
-      --   `nvim-notify` is only needed, if you want to use the notification view.
-      --   If not available, we use `mini` as the fallback
       { 'rcarriga/nvim-notify', module = 'notify' },
     },
     config = function()
       require('noice').setup {
+        background_colour = '#ace1af',
+        cmdline = {
+          enabled = true,
+          view = 'cmdline_popup',
+        },
+        messages = {
+          enabled = true,
+        },
+        popupmenu = {
+          enabled = true,
+        },
+        notify = {
+          enabled = true,
+        },
         lsp = {
           -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
           override = {
@@ -126,7 +135,6 @@ return {
             ['cmp.entry.get_documentation'] = true, -- requires hrsh7th/nvim-cmp
           },
         },
-        -- you can enable a preset for easier configuration
         presets = {
           bottom_search = false, -- use a classic bottom cmdline for search
           -- command_palette = true, -- position the cmdline and popupmenu together
