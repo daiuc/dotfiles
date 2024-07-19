@@ -101,7 +101,7 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 5
 
 -- (don't == 0) replace certain elements with prettier ones
-vim.opt.conceallevel = 0
+vim.opt.conceallevel = 1
 
 -- diagnostics
 vim.diagnostic.config {
