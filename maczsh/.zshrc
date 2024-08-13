@@ -1,20 +1,17 @@
-
-
 # make alt + left/right arrow work in tmux in kitty
 bindkey -e
-bindkey '^[[1;3C' forward-word # this is alt-left
+bindkey '^[[1;3C' forward-word  # this is alt-left
 bindkey '^[[1;3D' backward-word # this is alt-right
 #
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Disable annoying bell 
+# Disable annoying bell
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
 # Ubuntu style colorful prompt
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
-
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -34,26 +31,25 @@ source ~/.api_keys
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/opt/homebrew/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/opt/homebrew/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2>/dev/null)"
 if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
+  eval "$__conda_setup"
 else
-    if [ -f "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
-        . "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh"
-    else
-        export PATH="/opt/homebrew/Caskroom/miniconda/base/bin:$PATH"
-    fi
+  if [ -f "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
+    . "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh"
+  else
+    export PATH="/opt/homebrew/Caskroom/miniconda/base/bin:$PATH"
+  fi
 fi
 unset __conda_setup
 
 # <<< conda initialize <<<
 
-
 # pnpm
 export PNPM_HOME="/Users/chao/Library/pnpm"
 case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
+*":$PNPM_HOME:"*) ;;
+*) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
 
@@ -69,7 +65,7 @@ source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 # key bindings for autocomplet, cycle through suggestions
-bindkey              '^I'         menu-complete
+bindkey '^I' menu-complete
 bindkey "$terminfo[kcbt]" reverse-menu-complete
 
 # personal aliases
@@ -91,14 +87,12 @@ alias kuc3='kitten ssh chaodai@midway3-login3.rcc.uchicago.edu '
 alias kuc4='kitten ssh chaodai@midway3-login4.rcc.uchicago.edu '
 alias vim=nvim
 alias clr='clear' # since ctrl-l is not working in tmux
-alias ls='ls --color=auto'
-alias l='ls -lah --color=auto'
+# alias ls='ls --color=auto'
+alias ll='lsd -lah'
+alias ls='lsd'
 alias tl='tmux ls'
 alias ta='tmux attach -t'
 alias ts='tmux new-session -s'
-
-
-
 
 # starship
 eval "$(starship init zsh)"
