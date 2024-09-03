@@ -1,4 +1,4 @@
-jobs: 70
+jobs: 90
 cores: 120
 cluster: "mkdir -p slurm_logs && sbatch --partition {resources.partition} --account pi-yangili1 -t {resources.time} -c {resources.cpu} --mem {resources.mem_mb} -e slurm_logs/{rule}%j.e -o slurm_logs/{rule}%j.o --job-name {rule}  "
 default-resources: [time=500, mem_mb=15000, cpu=1, partition=caslake]
