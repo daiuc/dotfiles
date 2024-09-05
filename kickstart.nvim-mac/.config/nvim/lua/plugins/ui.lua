@@ -85,6 +85,12 @@ return {
     },
     config = function()
       require('noice').setup {
+        routes = {
+          {
+            view = 'notify',
+            filter = { event = 'msg_showmode' },
+          },
+        },
         background_colour = '#ace1af',
         cmdline = {
           enabled = true,
