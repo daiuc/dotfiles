@@ -1,5 +1,5 @@
 # for midway3 .zshrc
-
+WORDCHARS='*?_[]~=/&;!#$%^(){}<>'
 bindkey -e
 bindkey '^[[1;3C' forward-word  # this is alt-left
 bindkey '^[[1;3D' backward-word # this is alt-right
