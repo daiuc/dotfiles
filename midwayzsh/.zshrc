@@ -1,5 +1,5 @@
 # for midway3 .zshrc
-WORDCHARS='*?_[]~=/&;!#$%^(){}<>'
+WORDCHARS='*?_[]~=&;!#$%^(){}<>'
 bindkey -e
 bindkey '^[[1;3C' forward-word  # this is alt-left
 bindkey '^[[1;3D' backward-word # this is alt-right
@@ -42,18 +42,18 @@ source ~/.api_keys
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/scratch/midway3/chaodai/miniconda3/bin/conda' 'shell.zsh' 'hook' 2>/dev/null)"
 if [ $? -eq 0 ]; then
-  eval "$__conda_setup"
+    eval "$__conda_setup"
 else
-  if [ -f "/scratch/midway3/chaodai/miniconda3/etc/profile.d/conda.sh" ]; then
-    . "/scratch/midway3/chaodai/miniconda3/etc/profile.d/conda.sh"
-  else
-    export PATH="/scratch/midway3/chaodai/miniconda3/bin:$PATH"
-  fi
+    if [ -f "/scratch/midway3/chaodai/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/scratch/midway3/chaodai/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/scratch/midway3/chaodai/miniconda3/bin:$PATH"
+    fi
 fi
 unset __conda_setup
 
 if [ -f "/scratch/midway3/chaodai/miniconda3/etc/profile.d/mamba.sh" ]; then
-  . "/scratch/midway3/chaodai/miniconda3/etc/profile.d/mamba.sh"
+    . "/scratch/midway3/chaodai/miniconda3/etc/profile.d/mamba.sh"
 fi
 
 # zsh-autosuggestions & syntaxhighlighting

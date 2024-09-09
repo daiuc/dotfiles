@@ -30,7 +30,7 @@ return {
       require('catppuccin').setup {
         flavour = 'macchiato',
         transparent_background = true,
-        vim.api.nvim_set_hl(0, 'NotifyBackground', { bg = '#ace1af' }),
+        -- vim.api.nvim_set_hl(0, 'NotifyBackground', { bg = '#ace1af' }),
       }
     end,
   },
