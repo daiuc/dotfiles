@@ -1,7 +1,13 @@
 # make alt + left/right arrow work in tmux in kitty
+WORDCHARS='*?_~&;!#$%^(){}[]<>' # add "-" "_" "." if you want to treat them as part of a word
 bindkey -e
-bindkey '^[[1;3C' forward-word  # this is alt-left
-bindkey '^[[1;3D' backward-word # this is alt-right
+# iterm
+# bindkey "\e\e[D" backward-word # ⌥←
+# bindkey "\e\e[C" forward-word # ⌥→
+
+# kitty
+bindkey "\e[1;3D" backward-word # ⌥←
+bindkey "\e[1;3C" forward-word  # ⌥→
 #
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
