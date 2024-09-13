@@ -159,7 +159,7 @@ return {
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         pyright = {
-          filetypes = { 'python', 'snakemake' },
+          filetypes = { 'python' },
           flags = lsp_flags,
           -- settings = {
           --   python = {
@@ -266,7 +266,7 @@ return {
         'isort',
         'prettier', -- Used to format javascript code
         'shfmt', -- Used to format bash code
-        --'tree-sitter-cli',
+        -- 'tree-sitter-cli',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
