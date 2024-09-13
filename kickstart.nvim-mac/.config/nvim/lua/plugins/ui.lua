@@ -1,5 +1,4 @@
 return {
-  -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
 
   { -- filetree
@@ -52,17 +51,9 @@ return {
   },
   {
     'stevearc/oil.nvim',
-    opts = {
-      view_options = {
-        show_hidden = true,
-      },
-    },
-    dependencies = {
-      'nvim-tree/nvim-web-devicons',
-    },
-    keys = {
-      { '<leader>ol', ':Oil --float<cr>', desc = '[O]pen oi[l]' },
-    },
+    opts = {},
+    -- Optional dependencies
+    dependencies = { 'echasnovski/mini.icons' },
   },
   {
     'nvim-lualine/lualine.nvim',
@@ -74,8 +65,43 @@ return {
       },
     },
   },
+  { -- make window bordoers colorful
+    'nvim-zh/colorful-winsep.nvim',
+    enabled = false,
+    event = { 'WinLeave' },
+    config = function()
+      require('colorful-winsep').setup()
+    end,
+  },
+  {
+    'OXY2DEV/markview.nvim',
+    lazy = true, -- Recommended
+    ft = { 'markdown', 'rmd', 'quarto' },
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+      'nvim-tree/nvim-web-devicons',
+    },
+    code_blocks = {
+      style = 'minimal',
+      icons = true,
+      position = nil,
+      min_width = 70,
+
+      pad_amount = 1,
+      pad_char = ' ',
+
+      language_direction = 'left',
+      language_names = {},
+
+      hl = 'CursorLine',
+
+      sign = true,
+      sign_hl = nil,
+    },
+  },
   {
     'folke/noice.nvim',
+    enabled = true,
     event = 'VeryLazy',
     opts = {},
     dependencies = {
@@ -113,10 +139,9 @@ return {
             ['cmp.entry.get_documentation'] = true, -- requires hrsh7th/nvim-cmp
           },
         },
-        -- you can enable a preset for easier configuration
         presets = {
           bottom_search = false, -- use a classic bottom cmdline for search
-          command_palette = false, -- position the cmdline and popupmenu together
+          -- command_palette = true, -- position the cmdline and popupmenu together
           long_message_to_split = true, -- long messages will be sent to a split
           inc_rename = false, -- enables an input dialog for inc-rename.nvim
           lsp_doc_border = true, -- add a border to hover docs and signature help
@@ -124,10 +149,9 @@ return {
       }
     end,
   },
-}, {
+  -- UI configuration as a separate table inside the returned table
   ui = {
-    -- If you are using a Nerd Font: set icons to an empty table which will use the
-    -- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
+    -- If you are using a Nerd Font, set icons to an empty table to use the default lazy.nvim Nerd Font icons
     icons = vim.g.have_nerd_font and {} or {
       cmd = '⌘',
       config = '🛠',
