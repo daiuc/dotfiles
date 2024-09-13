@@ -1,5 +1,4 @@
 return {
-  -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
 
   { -- filetree
@@ -56,7 +55,6 @@ return {
     -- Optional dependencies
     dependencies = { 'echasnovski/mini.icons' },
   },
-
   {
     'nvim-lualine/lualine.nvim',
     enabled = false,
@@ -153,10 +151,9 @@ return {
       }
     end,
   },
-}, {
+  -- UI configuration as a separate table inside the returned table
   ui = {
-    -- If you are using a Nerd Font: set icons to an empty table which will use the
-    -- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
+    -- If you are using a Nerd Font, set icons to an empty table to use the default lazy.nvim Nerd Font icons
     icons = vim.g.have_nerd_font and {} or {
       cmd = '⌘',
       config = '🛠',

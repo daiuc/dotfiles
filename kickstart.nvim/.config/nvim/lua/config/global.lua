@@ -50,7 +50,7 @@ vim.opt.smartindent = true
 vim.opt.breakindent = true
 
 -- use spaces as tabs
-local tabsize = 4
+local tabsize = 2
 vim.opt.expandtab = true
 vim.opt.shiftwidth = tabsize
 vim.opt.tabstop = tabsize
