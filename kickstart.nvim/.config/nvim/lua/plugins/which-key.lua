@@ -4,7 +4,7 @@ return {
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
     config = function() -- This is the function that runs, AFTER loading
       require('which-key').setup()
-      require 'config.keymap'
+      -- require 'config.keymap'
     end,
   },
 }

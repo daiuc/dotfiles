@@ -6,4 +6,5 @@ else
   require 'config.global'
   require 'config.autocommands'
   require 'config.lazy'
+  require 'config.keymap'
 end
