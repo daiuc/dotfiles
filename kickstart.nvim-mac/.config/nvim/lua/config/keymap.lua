@@ -192,7 +192,18 @@ wk.add {
   { '.', ':norm .<cr>', desc = 'repat last normal mode command' },
   { '<M-j>', ":m'>+<cr>`<my`>mzgv`yo`z", desc = 'move line down' },
   { '<M-k>', ":m'<-2<cr>`>my`<mzgv`yo`z", desc = 'move line up' },
-  { '<cr>', send_region, desc = 'run code region' },
+  -- { '<cr>', send_region, desc = 'run code region' },
+  {
+    '<cr>',
+    function()
+      if vim.bo.filetype == 'qf' or vim.bo.filetype == 'quickfix' then
+        vim.cmd 'cnext'
+      else
+        send_region()
+      end
+    end,
+    desc = 'run code region or jump to Quickfix',
+  },
   -- { "q", ":norm @q<cr>", desc = "repat q macro" },
 }
 
@@ -275,7 +286,7 @@ nmap('<leader><cr>', '<Plug>SlimeSendCell')
 
 -- normal mode with <leader>
 wk.add({
-  { '<cr>', send_cell, desc = 'run code cell' },
+  { '<leader><cr>', send_cell, desc = 'run code cell' },
 
   { '<leader>c', group = '[c]ode / [c]ell / [c]hunk' },
   { '<leader>ci', new_terminal_ipython, desc = 'new [i]python terminal' },
