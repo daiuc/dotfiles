@@ -74,36 +74,34 @@ return {
     end,
   },
   {
-    'lukas-reineke/headlines.nvim',
-    dependencies = 'nvim-treesitter/nvim-treesitter',
-    enabled = true,
+    'OXY2DEV/markview.nvim',
+    lazy = true, -- Recommended
+    ft = { 'markdown', 'rmd', 'quarto' },
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+      'nvim-tree/nvim-web-devicons',
+    },
+    code_blocks = {
+      style = 'minimal',
+      icons = true,
+      position = nil,
+      min_width = 70,
 
-    config = function()
-      require('headlines').setup {
-        quarto = {
-          query = vim.treesitter.query.parse(
-            'markdown',
-            [[
-                (fenced_code_block) @codeblock
-                ]]
-          ),
-          codeblock_highlight = 'CodeBlock',
-          treesitter_language = 'markdown',
-        },
-        markdown = {
-          query = vim.treesitter.query.parse(
-            'markdown',
-            [[
-                (fenced_code_block) @codeblock
-                ]]
-          ),
-          codeblock_highlight = 'CodeBlock',
-        },
-      }
-    end,
+      pad_amount = 1,
+      pad_char = ' ',
+
+      language_direction = 'left',
+      language_names = {},
+
+      hl = 'CursorLine',
+
+      sign = true,
+      sign_hl = nil,
+    },
   },
   {
     'folke/noice.nvim',
+    enabled = true,
     event = 'VeryLazy',
     opts = {},
     dependencies = {
