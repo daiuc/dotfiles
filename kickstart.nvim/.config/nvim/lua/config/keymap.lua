@@ -362,6 +362,31 @@ wk.add({
   { '<leader>qrb', ':QuartoSendBelow<cr>', desc = 'run [b]elow' },
   { '<leader>qrr', ':QuartoSendAbove<cr>', desc = 'to cu[r]sor' },
 
+  { '<leader>t', group = '[t]oggle terminal' },
+  { '<leader>tf', ':ToggleTerm direction=float<cr>', desc = '[f]loat terminal' },
+  { '<leader>to', ':ToggleTerm direction=horizontal<cr>', desc = 'h[o]rizontal terminal' },
+  { '<leader>tv', ':ToggleTerm direction=vertical size=80<cr>', desc = '[v]ertical terminal' },
+  { '<leader>tt', ':ToggleTerm<cr>', desc = '[t]erminal [t]oggle' },
+  { '<leader>ts', ':TermSelect<cr>', desc = '[t]erminal [s]elect' },
+  {
+    mode = 'v',
+    '<leader>tbb',
+    function()
+      local trim_spaces = true
+      require('toggleterm').send_lines_to_terminal('visual_selection', trim_spaces, { args = vim.v.count })
+    end,
+    desc = 'Send [bb]locks of visual selection to toggle terminal',
+  },
+  {
+    mode = { 'n', 'v' },
+    '<leader>tll',
+    function()
+      local trim_spaces = true
+      require('toggleterm').send_lines_to_terminal('single_line', trim_spaces, { args = vim.v.count })
+    end,
+    desc = 'Send single [ll]ine under cursor to toggle terminal',
+  },
+
   { '<leader>v', group = '[v]im' },
   { '<leader>vc', ':Telescope colorscheme<cr>', desc = '[c]olortheme' },
   { '<leader>vh', ':execute "h " . expand("<cword>")<cr>', desc = 'vim [h]elp for current word' },

@@ -1,6 +1,21 @@
 return {
   { 'numToStr/Comment.nvim', opts = {} },
 
+  { -- or show symbols in the current file as breadcrumbs
+    'Bekaboo/dropbar.nvim',
+    enabled = true,
+    -- enabled = function()
+    --   return vim.fn.has 'nvim-0.10' == 1
+    -- end,
+    dependencies = {
+      'nvim-telescope/telescope-fzf-native.nvim',
+    },
+    config = function()
+      -- turn off global option for windowline
+      vim.opt.winbar = nil
+      vim.keymap.set('n', '<leader>ls', require('dropbar.api').pick, { desc = '[s]ymbols' })
+    end,
+  },
   { -- filetree
     'nvim-tree/nvim-tree.lua',
     enabled = true,
@@ -85,7 +100,7 @@ return {
       style = 'minimal',
       icons = true,
       position = nil,
-      min_width = 70,
+      min_width = 80,
 
       pad_amount = 1,
       pad_char = ' ',
@@ -98,6 +113,19 @@ return {
       sign = true,
       sign_hl = nil,
     },
+  },
+  { -- fancier terminal
+    'akinsho/toggleterm.nvim',
+    opts = {},
+    -- config = function()
+    -- local trim_spaces = true
+    -- vim.keymap.set('v', '<leader>tl', function()
+    --   require('toggleterm').send_lines_to_terminal('single_line', trim_spaces, { args = vim.v.count })
+    -- end)
+    -- vim.keymap.set('v', '<leader>tb', function()
+    --   require('toggleterm').send_lines_to_terminal('visual_selection', trim_spaces, { args = vim.v.count })
+    -- end)
+    -- end,
   },
   {
     'folke/noice.nvim',
