@@ -412,7 +412,7 @@ wk.add({
   { '<leader>w-', '<cmd>resize -5<CR>', desc = 'decrease window height' },
   { '<leader>w<', '<cmd>vertical resize -5<CR>', desc = 'decrease window width' },
   { '<leader>w>', '<cmd>vertical resize +5<CR>', desc = 'increase window width' },
-  { '<leader>w=', '<cmd>resize<CR>', desc = 'equalize window sizes' },
+  { '<leader>w=', '<C-w>=', desc = 'equalize window sizes' },
   { '<leader>w|', '<cmd>resize |<CR>', desc = 'maximize window height' },
   { '<leader>w_', '<cmd>resize _<CR>', desc = 'maximize window width' },
 
