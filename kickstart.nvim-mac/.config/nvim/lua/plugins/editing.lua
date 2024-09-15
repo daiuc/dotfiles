@@ -40,10 +40,28 @@ return {
 
       require('mini.cursorword').setup()
 
-      require('mini.tabline').setup()
+      -- require('mini.tabline').setup()
 
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
+    end,
+  },
+  {
+    'akinsho/bufferline.nvim',
+    version = '*',
+    dependencies = 'nvim-tree/nvim-web-devicons',
+    config = function()
+      vim.opt.termguicolors = true
+      require('bufferline').setup {
+        options = {
+          mode = 'buffers',
+          separator_style = 'thin',
+          indicator = {
+            icon = ' 🍑',
+            style = 'icon',
+          },
+        },
+      }
     end,
   },
   {

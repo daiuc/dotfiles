@@ -102,7 +102,6 @@ local function send_region()
   end
 end
 
--- keep selection after indent/dedent
 vmap('>', '>gv')
 vmap('<', '<gv')
 
@@ -117,7 +116,7 @@ nmap('<c-l>', '<c-w>l')
 nmap('<c-j>', '<c-w>j')
 nmap('<c-k>', '<c-w>k')
 
--- Move between tabs, note mini.tabline uses bnext and bprev
+-- Move between tabs, note bufferline uses bnext and bprev
 -- nmap('H', '<cmd>tabprevious<cr>')
 -- nmap('L', '<cmd>tabnext<cr>')
 nmap('H', '<cmd>bprev<cr>')
@@ -192,7 +191,6 @@ wk.add {
   { '.', ':norm .<cr>', desc = 'repat last normal mode command' },
   { '<M-j>', ":m'>+<cr>`<my`>mzgv`yo`z", desc = 'move line down' },
   { '<M-k>', ":m'<-2<cr>`>my`<mzgv`yo`z", desc = 'move line up' },
-  -- { '<cr>', send_region, desc = 'run code region' },
   {
     '<cr>',
     function()
@@ -281,8 +279,8 @@ vim.keymap.set('n', '[[', goto_previous_code_chunk, { noremap = true, silent = t
 vim.keymap.set('n', ']]', goto_next_code_chunk, { noremap = true, silent = true })
 
 -- send code with Enter and leader Enter
-vmap('<cr>', '<Plug>SlimeRegionSend')
-nmap('<leader><cr>', '<Plug>SlimeSendCell')
+-- vmap('<cr>', '<Plug>SlimeRegionSend')
+-- nmap('<leader><cr>', '<Plug>SlimeSendCell')
 
 -- normal mode with <leader>
 wk.add({
@@ -307,11 +305,9 @@ wk.add({
   { '<leader>e', group = '[e]dit' },
 
   { '<leader>f', group = '[f]ind (telescope)' },
-  { '<leader>f<space>', '<cmd>Telescope buffers<cr>', desc = '[ ] buffers' },
   { '<leader>fM', '<cmd>Telescope man_pages<cr>', desc = '[M]an pages' },
   { '<leader>fb', '<cmd>Telescope current_buffer_fuzzy_find<cr>', desc = 'current [b]uffer fuzzy find' },
   { '<leader>fc', '<cmd>Telescope git_commits<cr>', desc = 'git [c]ommits' },
-  { '<leader>fd', '<cmd>Telescope buffers<cr>', desc = '[d] buffers' },
   { '<leader>ff', '<cmd>Telescope find_files<cr>', desc = '[f]iles' },
   { '<leader>fg', '<cmd>Telescope live_grep<cr>', desc = '[g]rep' },
   { '<leader>fh', '<cmd>Telescope help_tags<cr>', desc = '[h]elp' },
@@ -320,6 +316,7 @@ wk.add({
   { '<leader>fl', '<cmd>Telescope loclist<cr>', desc = '[l]oclist' },
   { '<leader>fm', '<cmd>Telescope marks<cr>', desc = '[m]arks' },
   { '<leader>fq', '<cmd>Telescope quickfix<cr>', desc = '[q]uickfix' },
+  { '<leader>fu', '<cmd>Telescope buffers<cr>', desc = 'b[u]ffers' },
 
   { '<leader>l', group = '[l]anguage/lsp' },
   { '<leader>la', vim.lsp.buf.code_action, desc = 'code [a]ction' },
@@ -365,6 +362,31 @@ wk.add({
   { '<leader>qrb', ':QuartoSendBelow<cr>', desc = 'run [b]elow' },
   { '<leader>qrr', ':QuartoSendAbove<cr>', desc = 'to cu[r]sor' },
 
+  { '<leader>t', group = '[t]oggle terminal' },
+  { '<leader>tf', ':ToggleTerm direction=float<cr>', desc = '[f]loat terminal' },
+  { '<leader>to', ':ToggleTerm direction=horizontal<cr>', desc = 'h[o]rizontal terminal' },
+  { '<leader>tv', ':ToggleTerm direction=vertical size=80<cr>', desc = '[v]ertical terminal' },
+  { '<leader>tt', ':ToggleTerm<cr>', desc = '[t]erminal [t]oggle' },
+  { '<leader>ts', ':TermSelect<cr>', desc = '[t]erminal [s]elect' },
+  {
+    mode = 'v',
+    '<leader>tbb',
+    function()
+      local trim_spaces = true
+      require('toggleterm').send_lines_to_terminal('visual_selection', trim_spaces, { args = vim.v.count })
+    end,
+    desc = 'Send [bb]locks of visual selection to toggle terminal',
+  },
+  {
+    mode = { 'n', 'v' },
+    '<leader>tll',
+    function()
+      local trim_spaces = true
+      require('toggleterm').send_lines_to_terminal('single_line', trim_spaces, { args = vim.v.count })
+    end,
+    desc = 'Send single [ll]ine under cursor to toggle terminal',
+  },
+
   { '<leader>v', group = '[v]im' },
   { '<leader>vc', ':Telescope colorscheme<cr>', desc = '[c]olortheme' },
   { '<leader>vh', ':execute "h " . expand("<cword>")<cr>', desc = 'vim [h]elp for current word' },
@@ -372,4 +394,29 @@ wk.add({
   { '<leader>vm', ':Mason<cr>', desc = '[m]ason software installer' },
   { '<leader>vs', ':e $MYVIMRC | :cd %:p:h | split . | wincmd k<cr>', desc = '[s]ettings, edit vimrc' },
   { '<leader>vt', toggle_light_dark_theme, desc = '[t]oggle light/dark theme' },
+
+  { '<leader>w', group = '[w]indow' },
+  { '<leader>wd', vim.diagnostic.open_float, desc = 'show [d]iagnostics under cursor' },
+  { '<leader>wh', '<C-w>h', desc = 'move [h]orizontally' },
+  { '<leader>wj', '<C-w>j', desc = 'move [j]ump' },
+  { '<leader>wk', '<C-w>k', desc = 'move [k]ump' },
+  { '<leader>wl', '<C-w>l', desc = 'move [l]orizontally' },
+  { '<leader>ws', '<cmd>split<cr>', desc = '[s]plit' },
+  { '<leader>wv', '<cmd>vsplit<cr>', desc = '[v]split' },
+  { '<leader>ww', '<C-w>w', desc = 'move to [w]indow' },
+  { '<leader>wq', '<cmd>q<cr>', desc = '[q]uit' },
+  { '<leader>wr', '<cmd>only<cr>', desc = '[r]emove other windows' },
+  { '<leader>wt', '<cmd>tabnew<cr>', desc = '[t]abnew' },
+  { '<leader>wT', '<cmd>tabclose<cr>', desc = '[T]abclose' },
+  { '<leader>w+', '<cmd>resize +5<CR>', desc = 'increase window height' },
+  { '<leader>w-', '<cmd>resize -5<CR>', desc = 'decrease window height' },
+  { '<leader>w<', '<cmd>vertical resize -5<CR>', desc = 'decrease window width' },
+  { '<leader>w>', '<cmd>vertical resize +5<CR>', desc = 'increase window width' },
+  { '<leader>w=', '<cmd>resize<CR>', desc = 'equalize window sizes' },
+  { '<leader>w|', '<cmd>resize |<CR>', desc = 'maximize window height' },
+  { '<leader>w_', '<cmd>resize _<CR>', desc = 'maximize window width' },
+
+  { '<leader>x', group = 'e[x]tra' },
+  { '<leader>xl', ':LspInfo<cr>', desc = '[l]sp info' },
+  { '<leader>xz', ':source $MYVIMRC<cr>', desc = '[z]ource' },
 }, { mode = 'n', prefix = '<leader>' })
