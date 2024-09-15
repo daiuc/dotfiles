@@ -13,6 +13,7 @@ config.automatically_reload_config = true
 config.font_size = 12
 -- config.dpi = 144.0
 config.font = wezterm.font({ family = "FiraCode Nerd Font" })
+config.harfbuzz_features = { "calt=1", "clig=1", "liga=1" }
 config.font_rules = {
 	{
 		intensity = "Normal",
@@ -22,7 +23,27 @@ config.font_rules = {
 	{
 		intensity = "Normal",
 		italic = true,
-		font = wezterm.font({ family = "VictorMono Nerd Font", weight = "Bold", style = "Italic" }),
+		font = wezterm.font({ family = "VictorMono Nerd Font", weight = "Medium", style = "Italic" }),
+	},
+	{
+		intensity = "Bold",
+		italic = false,
+		font = wezterm.font({ family = "CaskaydiaCove Nerd Font", weight = "Bold", style = "Normal" }),
+	},
+	{
+		intensity = "Bold",
+		italic = true,
+		font = wezterm.font({ family = "CaskaydiaCove Nerd Font", weight = "Bold", style = "Italic" }),
+	},
+	{
+		intensity = "Half",
+		italic = false,
+		font = wezterm.font({ family = "CaskaydiaCove Nerd Font", weight = "Light", style = "Normal" }),
+	},
+	{
+		intensity = "Half",
+		italic = true,
+		font = wezterm.font({ family = "VictorMono Nerd Font", weight = "Light", style = "Italic" }),
 	},
 }
 
