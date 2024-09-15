@@ -41,6 +41,7 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 # load tmux 3.2a
 module load tmux/3.2a
 module load parallel
+module load gcc/13.2.0 # or gcc/12.2.0 otherwise node.js will not work
 
 # api keys
 source ~/.api_keys
