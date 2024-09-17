@@ -176,6 +176,20 @@ wk.add({
   { '<m-i>', insert_r_chunk, desc = 'r code chunk' },
   { '[q', ':silent cprev<cr>', desc = '[q]uickfix prev' },
   { ']q', ':silent cnext<cr>', desc = '[q]uickfix next' },
+  {
+    ']t',
+    function()
+      require('todo-comments').jump_next()
+    end,
+    desc = 'next [t]odo comment',
+  },
+  {
+    '[t',
+    function()
+      require('todo-comments').jump_prev()
+    end,
+    desc = 'previous [t]odo comment',
+  },
   { 'gN', 'Nzzzv', desc = 'center search' },
   { 'gf', ':e <cfile><CR>', desc = 'edit file' },
   { 'gl', '<c-]>', desc = 'open help link' },
@@ -318,22 +332,27 @@ wk.add({
   { '<leader>fq', '<cmd>Telescope quickfix<cr>', desc = '[q]uickfix' },
   { '<leader>fu', '<cmd>Telescope buffers<cr>', desc = 'b[u]ffers' },
 
+  -- LSP keys
   { '<leader>l', group = '[l]anguage/lsp' },
-  { '<leader>la', vim.lsp.buf.code_action, desc = 'code [a]ction' },
+  { '<leader>la', ':Lspsaga code_action', desc = 'code [a]ction' },
   { '<leader>ld', group = '[d]iagnostics' },
   {
-    '<leader>ldd',
+    '<leader>ldt',
     function()
-      vim.diagnostic.enable(false)
+      vim.diagnostic.enable(not vim.diagnostic.is_enabled())
     end,
-    desc = '[d]isable',
+    desc = '[t]oggle diagnostic',
   },
-  { '<leader>lde', vim.diagnostic.enable, desc = '[e]nable' },
-  { '<leader>le', vim.diagnostic.open_float, desc = 'diagnostics (show hover [e]rror)' },
-  { '<leader>lg', ':Neogen<cr>', desc = 'neo[g]en docstring' },
-  { '<leader>lD', vim.lsp.buf.type_definition, desc = 'type [D]efinition' },
-  { '<leader>lR', desc = '[R]ename' },
-  { '<leader>lr', vim.lsp.buf.references, desc = '[r]eferences' },
+  { '<leader>ldn', ':Lspsaga diagnostic_jump_next<cr>', desc = 'jump to [n]ext diagnostic' },
+  { '<leader>ldp', ':Lspsaga diagnostic_jump_prev<cr>', desc = 'jump to [p]revious diagnostic' },
+  { '<leader>lds', ':Lspsaga show_line_diagnostics<cr>', desc = 'show [s]how line diagnostics' },
+  { '<leader>lD', ':Lspsaga goto_definition<cr>', desc = 'go to [D]efinition' },
+  { '<leader>lp', ':Lspsaga peek_definition<cr>', desc = '[p]eek definition' },
+  { '<leader>lR', ':Lspsaga rename<cr>', desc = '[R]ename' },
+  { '<leader>lr', ':Lspsaga finder<cr>', desc = '[r]efer to symbol' },
+  { '<leader>lo', ':Lspsaga outline<cr>', desc = 'symbol [o]utline in buffer' },
+  { mode = { 'n', 'v' }, '<leader>lF', vim.lsp.buf.format, desc = '[F]ormat code' },
+  { 'K', ':Lspsaga hover_doc<cr>', desc = 'Documentation' },
 
   { '<leader>o', group = '[o]tter & c[o]de' },
   { '<leader>oa', require('otter').activate, desc = 'otter [a]ctivate' },
