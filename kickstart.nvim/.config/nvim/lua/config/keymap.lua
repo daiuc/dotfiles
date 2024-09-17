@@ -334,7 +334,7 @@ wk.add({
 
   -- LSP keys
   { '<leader>l', group = '[l]anguage/lsp' },
-  { '<leader>la', ':Lspsaga code_action', desc = 'code [a]ction' },
+  { '<leader>la', ':Lspsaga code_action<cr>', desc = 'code [a]ction' },
   { '<leader>ld', group = '[d]iagnostics' },
   {
     '<leader>ldt',
@@ -349,8 +349,12 @@ wk.add({
   { '<leader>lD', ':Lspsaga goto_definition<cr>', desc = 'go to [D]efinition' },
   { '<leader>lp', ':Lspsaga peek_definition<cr>', desc = '[p]eek definition' },
   { '<leader>lR', ':Lspsaga rename<cr>', desc = '[R]ename' },
-  { '<leader>lr', ':Lspsaga finder<cr>', desc = '[r]efer to symbol' },
-  { '<leader>lo', ':Lspsaga outline<cr>', desc = 'symbol [o]utline in buffer' },
+  { '<leader>lf', ':Lspsaga finder<cr>', desc = '[f]ind symboles' }, -- doesn't work in quarto
+  { '<leader>lr',
+    function()
+      require('telescope.builtin').lsp_references()
+    end, desc = 'go to [r]eferences' },
+  { '<leader>lo', ':Trouble symbols<cr>', desc = 'symbols [o]utline in buffer' },
   { mode = { 'n', 'v' }, '<leader>lF', vim.lsp.buf.format, desc = '[F]ormat code' },
   { 'K', ':Lspsaga hover_doc<cr>', desc = 'Documentation' },
 
