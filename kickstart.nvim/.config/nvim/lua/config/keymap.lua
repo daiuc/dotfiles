@@ -368,6 +368,9 @@ wk.add({
   { '<leader>tv', ':ToggleTerm direction=vertical size=80<cr>', desc = '[v]ertical terminal' },
   { '<leader>tt', ':ToggleTerm<cr>', desc = '[t]erminal [t]oggle' },
   { '<leader>ts', ':TermSelect<cr>', desc = '[t]erminal [s]elect' },
+
+  { '<leader>mt', ':Markview toggleAll<cr>', desc = '[m]arkview [t]oggal all chunks' },
+
   {
     mode = 'v',
     '<leader>tbb',

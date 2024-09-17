@@ -1,6 +1,4 @@
 return {
-  { 'numToStr/Comment.nvim', opts = {} },
-
   { -- or show symbols in the current file as breadcrumbs
     'Bekaboo/dropbar.nvim',
     enabled = true,

@@ -2,6 +2,10 @@ return {
   -- disables hungry features for files larget than 2MB
   { 'LunarVim/bigfile.nvim' },
 
+  { 'numToStr/Comment.nvim', opts = {} },
+  { -- format things as tables
+    'godlygeek/tabular',
+  },
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = true } },
 
@@ -39,11 +43,15 @@ return {
       end
 
       require('mini.cursorword').setup()
-
-      -- require('mini.tabline').setup()
-
-      -- ... and there is more!
-      --  Check out: https://github.com/echasnovski/mini.nvim
+    end,
+  },
+  -- Add/change/delete surrounding delimiter pairs with ease
+  {
+    'kylechui/nvim-surround',
+    version = '*',
+    event = 'VeryLazy',
+    config = function()
+      require('nvim-surround').setup()
     end,
   },
   {
