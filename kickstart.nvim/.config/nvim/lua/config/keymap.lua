@@ -238,29 +238,34 @@ wk.add({
 
 local function new_terminal(lang)
   vim.cmd('vsplit term://' .. lang)
+  vim.cmd('setlocal nonumber norelativenumber')
 end
 
 local function new_terminal_python()
   new_terminal 'python'
   vim.cmd 'sleep 100m'
+  vim.cmd 'setlocal nonumber norelativenumber'
   vim.cmd 'normal! G' -- move to end of terminal
 end
 
 local function new_terminal_r()
   new_terminal 'R --no-save'
   vim.cmd 'sleep 100m'
+  vim.cmd 'setlocal nonumber norelativenumber'
   vim.cmd 'normal! G' -- move to end of terminal
 end
 
 local function new_terminal_ipython()
   new_terminal 'ipython --no-confirm-exit'
   vim.cmd 'sleep 100m'
+  vim.cmd 'setlocal nonumber norelativenumber'
   vim.cmd 'normal! G' -- move to end of terminal
 end
 
 local function new_terminal_shell()
   new_terminal '$SHELL'
   vim.cmd 'sleep 100m'
+  vim.cmd 'setlocal nonumber norelativenumber'
   vim.cmd 'normal! G' -- move to end of terminal
 end
 
@@ -308,12 +313,20 @@ wk.add({
     function()
       vim.cmd 'split term://$SHELL'
       vim.cmd 'sleep 100m'
+      vim.cmd 'setlocal nonumber norelativenumber'
       vim.cmd 'normal! G' -- move to end of terminal
     end,
     desc = '[N]ew terminal with shell (hsplit)',
   },
   { '<leader>cp', new_terminal_python, desc = 'new [p]ython terminal' },
   { '<leader>cr', new_terminal_r, desc = 'new [R] terminal' },
+  {
+    '<leader>cR',
+    function()
+      vim.cmd 'split term:///scratch/midway3/chaodai/miniconda3/envs/sos/bin/radian'
+    end,
+    desc = 'new [R]adian terminal',
+  },
   { '<leader>d', group = '[d]ebug' },
   { '<leader>dt', group = '[t]est' },
   { '<leader>e', group = '[e]dit' },
