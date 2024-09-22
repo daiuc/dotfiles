@@ -8,6 +8,7 @@ return {
         'r',
         'python',
         'diff',
+        'snakemake',
         'html',
         'lua',
         'luadoc',
