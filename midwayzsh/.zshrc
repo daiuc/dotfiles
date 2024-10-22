@@ -96,5 +96,3 @@ alias ta="tmux attach-session -t"
 alias ts="tmux new-session -s"
 alias envsos="conda deactivate && conda activate sos"
 
-# activate conda env sos - since I always use it
-conda activate sos
