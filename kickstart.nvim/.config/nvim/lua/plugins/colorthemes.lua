@@ -7,16 +7,16 @@ return {
     config = function()
       require('tokyonight').setup {
         style = 'night',
-        transparent = true,
+        transparent = false,
         styles = {
           sidebars = 'normal',
           floats = 'normal',
         }
       }
     end,
-    init = function()
-      vim.cmd.colorscheme 'tokyonight'
-    end,
+    -- init = function()
+      -- vim.cmd.colorscheme 'tokyonight'
+    -- end,
   },
   {
     'catppuccin/nvim',
@@ -24,13 +24,13 @@ return {
     lazy = false, -- make sure we load this during startup if it is your main colorscheme
     enabled = true,
     priority = 1000, -- make sure to load this before all the other start plugins
-    -- init = function()
-    --   vim.cmd.colorscheme 'catppuccin'
-    -- end,
+    init = function()
+      vim.cmd.colorscheme 'catppuccin'
+    end,
     config = function()
       require('catppuccin').setup {
         flavour = 'mocha',
-        transparent_background = true,
+        transparent_background = false,
         vim.api.nvim_set_hl(0, 'NotifyBackground', { bg = '#ace1af' }),
         custom_highlights = function(colors)
           return {
@@ -57,7 +57,7 @@ return {
         },
         options = {
           cursorline = true,
-          transparency = true,
+          transparency = false,
           lualine_transparency = true,
           highlight_inactive_windows = true,
         },
