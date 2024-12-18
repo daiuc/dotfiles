@@ -106,4 +106,7 @@ return {
       buftypes = {},
     },
   },
+  {
+    'rebelot/kanagawa.nvim',
+  },
 }
